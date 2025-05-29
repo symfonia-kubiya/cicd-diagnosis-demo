@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+spec:
+  selector:
+    app: payment-service
+  ports:
+    - port: "eighty"  # Still incorrect for testing, but label is realistic
+      targetPort: 8080

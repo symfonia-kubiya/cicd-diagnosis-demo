@@ -1,14 +1,15 @@
-apiVersion: v1                 # ❌ should be apps/v1 for a Deployment
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-api
+  name: payment-service
 spec:
-  replicas: 2
+  replicas: 1
+  selector:
+    matchLabels:
+      app: payment-service
   template:
     metadata:
       labels:
-        app: web-api
+        app: payment-service
     spec:
-      containers:
-        - name: web-api
-          image: nginx
+      # containers: []  <- Intentionally missing for test, but name looks real
