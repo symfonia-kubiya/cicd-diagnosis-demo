@@ -18,10 +18,10 @@ jobs:
 
       - name: Validate K8s deployment config
         run: |
-          wget -q https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
-          tar xf kubeval-linux-amd64.tar.gz
+          curl -LO https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+          tar -xzf kubeval-linux-amd64.tar.gz
           chmod +x kubeval
-          ./kubeval k8s/deployment.yaml
+          ./kubeval --schema-location="https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master" k8s/deployment.yaml
 
       - name: Simulate build
         run: |
