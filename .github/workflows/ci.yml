@@ -16,12 +16,12 @@ jobs:
           pip install yamllint > /dev/null
           yamllint k8s/
 
-      - name: Validate K8s deployment config
+      - name: Validate all K8s configs
         run: |
           curl -LO https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
           tar -xzf kubeval-linux-amd64.tar.gz
           chmod +x kubeval
-          ./kubeval --schema-location="https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master" k8s/deployment.yaml
+          ./kubeval --strict --exit-on-error --schema-location="https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master" k8s/*.yaml
 
       - name: Simulate build
         run: |
