@@ -6,5 +6,5 @@ spec:
   selector:
     app: payment-service
   ports:
-    - port: "eighty"  # Still incorrect for testing, but label is realistic
-      targetPort: 8080
+    - prot: 80  # <-- typo here: should be 'port'
+      targetPort: 8000
