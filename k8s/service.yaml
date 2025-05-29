@@ -6,5 +6,5 @@ spec:
   selector:
     app: payment-service
   ports:
-    - prot: 80  # <-- typo here: should be 'port'
+    - potr: 80  # <-- typo here: should be 'port'
       targetPort: 8000
